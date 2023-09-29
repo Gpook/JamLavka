@@ -7,12 +7,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] public LayerMask groundLayer;
     [SerializeField] private Vector3 direction;
+    [SerializeField] private Rigidbody rb;
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
-    [SerializeField] public LayerMask groundLayer;
     [SerializeField] private bool isGround;
-    [SerializeField] private Rigidbody rb;
 
 
     public void Start()
