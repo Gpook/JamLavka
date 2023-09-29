@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         var cameraPosition = mCamera.transform.position;
-        cameraPosition.z = player.transform.position.z - distanceToPlayer;
+        cameraPosition.z = player.transform.position.z + distanceToPlayer;
         mCamera.transform.position = cameraPosition;
     }
 }

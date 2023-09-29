@@ -5,12 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    public void StartScene()
+    public void StartSceneTime()
+    {
+        Invoke(nameof(StartScene), 2f);
+    }
+    public void GameSceneTime()
+    {
+        Invoke(nameof(GameScene), 2f);
+    }
+    
+    private void StartScene()
     {
         SceneManager.LoadScene("StartScene");
     }
-
-    public void GameScene()
+    
+    private void GameScene()
     {
         SceneManager.LoadScene("Game");
     }

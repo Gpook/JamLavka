@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 438401907}
   - component: {fileID: 438401906}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: MainCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1994,6 +1994,50 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1110130473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1110130475}
+  - component: {fileID: 1110130474}
+  m_Layer: 0
+  m_Name: SceneController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1110130474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110130473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cdff520483a8db44b589ee7aa0b5454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1110130475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110130473}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9243531, y: 2.2655451, z: -1.172736}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1463871332
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,7 +2050,7 @@ GameObject:
   - component: {fileID: 1463871334}
   - component: {fileID: 1463871333}
   m_Layer: 0
-  m_Name: Directional Light (1)
+  m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2463,13 +2507,13 @@ MonoBehaviour:
           m_StringArgument: isPressed
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 1110130474}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: GameSceneTime
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2525,7 +2569,7 @@ GameObject:
   - component: {fileID: 2063224342}
   - component: {fileID: 2063224341}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: PointGreenLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2802,6 +2846,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Claw
       objectReference: {fileID: 0}
+    - target: {fileID: 570694447618710307, guid: c53627175a0589e44ad16a53a3d79ff5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2912,7 +2961,7 @@ GameObject:
   - component: {fileID: 3463676752754965051}
   - component: {fileID: 6669315742326865323}
   m_Layer: 0
-  m_Name: button
+  m_Name: StartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3026,7 +3075,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3701354206903329008}
   m_Layer: 0
-  m_Name: clawMachine
+  m_Name: ClawMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3146,7 +3195,7 @@ GameObject:
   - component: {fileID: 7691602670772362358}
   - component: {fileID: 8509181762837230880}
   m_Layer: 0
-  m_Name: button_frame
+  m_Name: Button_Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3415,7 +3464,7 @@ GameObject:
   - component: {fileID: 8127567434981398793}
   - component: {fileID: 2785917055878583}
   m_Layer: 0
-  m_Name: button_decor
+  m_Name: Button_Decor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3441,11 +3490,12 @@ MeshFilter:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 438401909}
+  - {fileID: 1463871335}
+  - {fileID: 1110130475}
   - {fileID: 3701354206903329008}
   - {fileID: 1750982679}
-  - {fileID: 438401909}
   - {fileID: 570694448407246591}
   - {fileID: 561159468}
   - {fileID: 1501929238}
-  - {fileID: 1463871335}
   - {fileID: 337084497}
