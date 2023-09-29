@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
-        transform.Translate(direction * Time.deltaTime);
+        transform.Translate(direction);
         
         if (isGrounded && Input.GetMouseButtonDown(0))
         {
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
