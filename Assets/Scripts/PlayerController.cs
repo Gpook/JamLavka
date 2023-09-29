@@ -1,28 +1,35 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Vector3 direction;
-    [SerializeField] private GameObject player;
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
+    [SerializeField] public LayerMask groundLayer;
     [SerializeField] private bool isGround;
+    [SerializeField] private Rigidbody rb;
 
 
-    private void Jump()
+    public void Start()
     {
-        if (isGround)
-        {
-            
-        }
+        rb = GetComponent<Rigidbody>();
     }
-
     private void Update()
     {
-        player.transform.position = direction * speed;
+        transform.position = direction * speed;
+        
+        if (isGround && Input.GetMouseButtonDown(0))
+        {
+            rb.AddForce(Vector2.up * 5f, ForceMode.Impulse);
+        }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        isGround = (collision.gameObject.layer == groundLayer);
     }
 }
