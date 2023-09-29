@@ -7,29 +7,39 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] public LayerMask groundLayer;
     [SerializeField] private Vector3 direction;
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private float speed;
-    [SerializeField] private float jumpForce;
-    [SerializeField] private bool isGround;
+    [SerializeField] float jumpForce = 10f;
+    [SerializeField] private bool isGrounded;
 
-
-    public void Start()
+     public void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-    private void Update()
+
+    public void Update()
     {
-        transform.position = direction * speed;
+        transform.Translate(direction * Time.deltaTime);
         
-        if (isGround && Input.GetMouseButtonDown(0))
+        if (isGrounded && Input.GetMouseButtonDown(0))
         {
-            rb.AddForce(Vector2.up * 5f, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         }
     }
-    private void OnCollisionStay(Collision collision)
+
+    public void OnCollisionEnter(Collision collision)
     {
-        isGround = (collision.gameObject.layer == groundLayer);
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
     }
 }
