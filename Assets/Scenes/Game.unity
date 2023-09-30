@@ -425,9 +425,9 @@ GameObject:
   - component: {fileID: 1347383359}
   - component: {fileID: 1347383358}
   - component: {fileID: 1347383363}
+  - component: {fileID: 1347383364}
   - component: {fileID: 1347383362}
   - component: {fileID: 1347383361}
-  - component: {fileID: 1347383364}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -512,10 +512,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1640b5a0e663a4384ac572faa21afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0, z: 2}
+  direction: {x: 0, y: 0, z: 0.5}
   rb: {fileID: 1347383362}
   jumpForce: 15
+  moveSpeedMouse: 20
   isGrounded: 0
+  isCursorVisible: 0
 --- !u!54 &1347383362
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -586,7 +588,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1
-  m_Height: 3
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1765169156
