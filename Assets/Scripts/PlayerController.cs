@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private SceneController sceneController;
+    
     [SerializeField] private Vector3 direction;
     [SerializeField] private Rigidbody rb;
     [SerializeField] float jumpForce;
@@ -14,24 +11,41 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isGrounded;
     [SerializeField] private bool isCursorVisible;
 
+
      public void Start()
     {
         rb = GetComponent<Rigidbody>();
         LockCursor();
     }
-
      private void LockCursor()
      {
          Cursor.lockState = CursorLockMode.Locked;
          Cursor.visible = false;
          isCursorVisible = false;
      }
-
      private void UnlockCursor()
      {
          Cursor.lockState = CursorLockMode.None;
          Cursor.visible = true;
          isCursorVisible = true;
+     }
+     public void OnCollisionStay(Collision collision)
+     {
+         if (collision.gameObject.CompareTag("Ground"))
+         {
+             isGrounded = true;
+         }
+         if (collision.gameObject.CompareTag("Obstacle"))
+         {
+             sceneController.StartSceneTime();
+         }
+     }
+     public void OnCollisionExit(Collision collision)
+     {
+         if (collision.gameObject.CompareTag("Ground"))
+         {
+             isGrounded = false;
+         }
      }
     
     public void Update()
@@ -45,7 +59,6 @@ public class PlayerController : MonoBehaviour
         {
             LockCursor();
         }
-
         if (!isCursorVisible)
         {
             float mouseX = Input.GetAxis("Mouse X");
@@ -53,29 +66,13 @@ public class PlayerController : MonoBehaviour
             moveDirection.Normalize();
             transform.Translate(moveDirection * (moveSpeedMouse * Time.deltaTime));
         }
-        
-        
-        transform.Translate(direction);
-        
         if (isGrounded && Input.GetMouseButtonDown(0))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         }
+        
+        transform.Translate(direction);
     }
 
-    public void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
-
-    public void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-        }
-    }
+    
 }
