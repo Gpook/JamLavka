@@ -3,7 +3,32 @@ guid: bd6ab841c408f8b4e94f1a9cf7a1e8c4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_White
+    second: {fileID: 2100000, guid: 304b8415e67a31d41b35cfe718386e87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tongue
+    second: {fileID: 2100000, guid: 4d447433f3f38dd4f973da1ba815d699, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Yeti_Main
+    second: {fileID: 2100000, guid: 304b8415e67a31d41b35cfe718386e87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Yeti_Secondary
+    second: {fileID: 2100000, guid: 0508c87f533e6ba4ca639c8c0780d32d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Yeti_Teeth
+    second: {fileID: 2100000, guid: 304b8415e67a31d41b35cfe718386e87, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

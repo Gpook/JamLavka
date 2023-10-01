@@ -3,7 +3,27 @@ guid: dc1d980c92c7b874c83e9c470d04ed95
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_White
+    second: {fileID: 2100000, guid: 304b8415e67a31d41b35cfe718386e87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Orc_Hair
+    second: {fileID: 2100000, guid: 66999ef0254bc5a4f984faa09508e18f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Orc_Main
+    second: {fileID: 2100000, guid: 9d2d844bcff560d47aae9d7a2a1c4a84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tongue
+    second: {fileID: 2100000, guid: 4d447433f3f38dd4f973da1ba815d699, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

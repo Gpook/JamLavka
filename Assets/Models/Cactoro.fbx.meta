@@ -3,7 +3,32 @@ guid: 53644134690e43647af5048f93829ceb
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cactoro_Main
+    second: {fileID: 2100000, guid: 81ea1f67453c30641a4fa7ca8eac1ee9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cactoro_Main.001
+    second: {fileID: 2100000, guid: 81ea1f67453c30641a4fa7ca8eac1ee9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cactoro_Red
+    second: {fileID: 2100000, guid: cd14f399b334af745ab3e753b635cbe4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cactoro_Secondary
+    second: {fileID: 2100000, guid: 9d2d844bcff560d47aae9d7a2a1c4a84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_White
+    second: {fileID: 2100000, guid: 304b8415e67a31d41b35cfe718386e87, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

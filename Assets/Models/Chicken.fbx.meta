@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Beak
+    second: {fileID: 2100000, guid: 9d2d844bcff560d47aae9d7a2a1c4a84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Chicken_Main
     second: {fileID: 2100000, guid: 5f35ae9530edec84085e28d4c3302e29, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chicken_Red
+    second: {fileID: 2100000, guid: cd14f399b334af745ab3e753b635cbe4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

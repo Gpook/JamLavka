@@ -3,7 +3,17 @@ guid: 9acff7778ace32d46ae9071f73c154d7
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_White
+    second: {fileID: 2100000, guid: 304b8415e67a31d41b35cfe718386e87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ninja_Main
+    second: {fileID: 2100000, guid: 2041528c27d592c4eb35830c185fe684, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
