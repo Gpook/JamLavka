@@ -512,13 +512,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1640b5a0e663a4384ac572faa21afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0, z: 0.5}
+  sceneController: {fileID: 518938158}
+  direction: {x: 0, y: 0, z: 0.25}
   rb: {fileID: 1347383362}
-  jumpForce: 15
-  moveSpeedMouse: 40
+  jumpForce: 25
+  moveSpeedMouse: 30
   isGrounded: 0
   isCursorVisible: 0
-  sceneController: {fileID: 518938158}
 --- !u!54 &1347383362
 Rigidbody:
   m_ObjectHideFlags: 0
