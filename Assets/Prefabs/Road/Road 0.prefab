@@ -2770,6 +2770,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cactoro
       objectReference: {fileID: 0}
+    - target: {fileID: 7025853750986090056, guid: 1d8a1fd1eb0e83642bb76fce8e5f063b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7695253663642516722, guid: 1d8a1fd1eb0e83642bb76fce8e5f063b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2894,6 +2899,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chicken
       objectReference: {fileID: 0}
+    - target: {fileID: 6533703866892619159, guid: 4c8e533f795b8ae4c8d07fc075f4ae8a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2967,6 +2977,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushie
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910912235868070898, guid: 435680911c9e4e44f86c1d4070ae9ad5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3042,6 +3057,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orc
       objectReference: {fileID: 0}
+    - target: {fileID: 758503615571040586, guid: cbcc02a5013f78444b49c45a9bfaef82,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3065,6 +3085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ninja 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945980266638634741, guid: 0413913d6504c9a4fb35aa3dbe5814f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7723326932425520207, guid: 0413913d6504c9a4fb35aa3dbe5814f9,
         type: 3}
@@ -3139,6 +3164,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Yeti
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769048731520079257, guid: 05b73f96633b5d249b69c3b5d3a22e45,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6576407666646339363, guid: 05b73f96633b5d249b69c3b5d3a22e45,
         type: 3}
