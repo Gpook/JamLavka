@@ -5,28 +5,29 @@ using UnityEngine;
 public class HunterController : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
-    public Transform target;
-    public float moveSpeed = 5.0f;
-    public float smoothRotation = 5.0f;
-    public float catchRadius = 1.0f;
-    public float catchSpeed = 2.0f;
-    public float returnSpeed = 2.0f;
-    public float delayBeforeStartFollowing = 2.0f;
+    [SerializeField] private Vector3 initialPosition;
+    [SerializeField] private Transform target;
+    
+    [SerializeField] private float moveSpeed = 5.0f;
+    [SerializeField] private float smoothRotation = 5.0f;
+    [SerializeField] private float catchRadius = 1.0f;
+    [SerializeField] private float catchSpeed = 2.0f;
+    [SerializeField] private float returnSpeed = 2.0f;
+    [SerializeField] private float delayBeforeStartFollowing = 2.0f;
+    [SerializeField] private float timeProgression;
+    [SerializeField] private float speedOffset;
 
-    private bool isFollowing = false;
-    private bool isCatching = false;
-    private Vector3 initialPosition;
-    [SerializeField] float timeProgression;
-    [SerializeField] float speedOffset;
+    [SerializeField] private bool isFollowing = false;
+    [SerializeField] private bool isCatching = false;
 
     private void Start()
     {
         initialPosition = transform.position;
-        Invoke("StartFollowing", delayBeforeStartFollowing);
+        Invoke(nameof(StartFollowing), delayBeforeStartFollowing);
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             playerController.GameOver();
         }
@@ -35,40 +36,27 @@ public class HunterController : MonoBehaviour
     private void FixedUpdate()
     {
         timeProgression += Time.deltaTime / 30;
-      
         if (target == null || !isFollowing) return;
-
-        Vector3 targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
-       
-        float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
-
+        var targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
+        var distanceToTarget = Vector3.Distance(transform.position, targetPosition);
         if (!isCatching)
         {
-            // Smoothly rotate towards the target
-            Quaternion targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
+            var targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, smoothRotation * Time.deltaTime);
-
-            // Move towards the target in X and Z axes
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * (1 + timeProgression) * Time.deltaTime + speedOffset);
-
-            // If the target stops moving, the hunter should keep approaching
             if (distanceToTarget <= catchRadius)
             {
                 isCatching = true;
-               
             }
         }
         else
         {
-            // Move towards the target in Y axis for catching
-            Vector3 catchPosition = new Vector3(target.position.x, target.position.y, target.position.z);
-            
+            var catchPosition = new Vector3(target.position.x, target.position.y, target.position.z);
             transform.position = Vector3.MoveTowards(transform.position, catchPosition, catchSpeed * Time.deltaTime);
-
-            // Check if hunter's collider is in contact with the target's collider
             if (Physics.CheckSphere(transform.position, catchRadius, LayerMask.GetMask("Target")))
             {
                 isFollowing = false;
+                // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
                 playerController.GameOver();
             }
         }

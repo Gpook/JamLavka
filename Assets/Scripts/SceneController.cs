@@ -15,11 +15,11 @@ public class SceneController : MonoBehaviour
 
     public void StartSceneTime()
     {
-        Invoke(nameof(StartScene), 2f);
+        Invoke(nameof(StartScene), 3f);
     }
     public void GameSceneTime()
     {
-        Invoke(nameof(GameScene), 2f);
+        Invoke(nameof(GameScene), 1f);
     }
     
     public void StartScene()

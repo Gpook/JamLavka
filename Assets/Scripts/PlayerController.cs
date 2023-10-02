@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ObstacleController obstacleController;
     [SerializeField] private PlayerAnimController playerAnimController;
     [SerializeField] private SceneController sceneController;
-    [SerializeField] private GameObject losePanel;
     
     [SerializeField] private Vector3 direction;
     [SerializeField] private Rigidbody rb;
@@ -40,19 +39,17 @@ public class PlayerController : MonoBehaviour
          Cursor.visible = true;
          isCursorVisible = true;
      }
+     
      public void GameOver()
      {
          obstacleController.StopSpawnObstacle();
-         losePanel.SetActive(true);
-         UnlockCursor();
-         direction.z = 0;
+         UnlockCursor();direction.z = 0;
          playerAnimController.AnimDie();
-       //  sceneController.StartSceneTime();
-        isDead = true;
-        gameOverSound.Play();
-        hitSound.Play();
-        backMusic.Stop();
-        
+         sceneController.StartSceneTime();
+         isDead = true;
+         gameOverSound.Play();
+         hitSound.Play();
+         backMusic.Stop();
     }
      public void OnCollisionEnter(Collision collision)
      {
