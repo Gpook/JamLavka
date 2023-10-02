@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private ObstacleController obstacleController;
     [SerializeField] private PlayerAnimController playerAnimController;
     [SerializeField] private SceneController sceneController;
     [SerializeField] private GameObject losePanel;
@@ -33,6 +34,15 @@ public class PlayerController : MonoBehaviour
          Cursor.visible = true;
          isCursorVisible = true;
      }
+     private void GameOver()
+     {
+         obstacleController.StopSpawnObstacle();
+         losePanel.SetActive(true);
+         UnlockCursor();
+         direction.z = 0;
+         playerAnimController.AnimDie();
+         sceneController.StartSceneTime();
+     }
      public void OnCollisionEnter(Collision collision)
      {
          if (collision.gameObject.CompareTag("Ground"))
@@ -41,12 +51,7 @@ public class PlayerController : MonoBehaviour
          }
          if (collision.gameObject.CompareTag("Obstacle"))
          {
-             
-             losePanel.SetActive(true);
-             UnlockCursor();
-             direction.z = 0;
-             playerAnimController.AnimDie();
-             sceneController.StartSceneTime();
+             GameOver();
          }
      }
      public void OnCollisionExit(Collision collision)
