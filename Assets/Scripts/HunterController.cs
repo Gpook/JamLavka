@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class HunterController : MonoBehaviour
@@ -33,7 +32,7 @@ public class HunterController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         timeProgression += Time.deltaTime / 30;
         if (target == null || !isFollowing) return;
