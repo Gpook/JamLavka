@@ -173,11 +173,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1640b5a0e663a4384ac572faa21afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstacleController: {fileID: 0}
   playerAnimController: {fileID: 7043911299198334106}
   sceneController: {fileID: 0}
+  losePanel: {fileID: 0}
   direction: {x: 0, y: 0, z: 0.25}
   rb: {fileID: 4741177433838772854}
-  jumpForce: 25
+  jumpForce: 50
   moveSpeedMouse: 30
   isGrounded: 0
   isCursorVisible: 0
@@ -193,6 +195,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MaleCharacterPBR
+      objectReference: {fileID: 0}
+    - target: {fileID: 8855052669661678444, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8855052669661678444, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8855052669661678444, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8855052669661678444, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
         type: 3}

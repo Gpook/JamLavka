@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeedMouse;
     [SerializeField] private bool isGrounded;
     [SerializeField] private bool isCursorVisible;
+    [SerializeField] float timeProgression;
 
 
     public void Start()
@@ -91,7 +92,8 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
             playerAnimController.AnimJump();
         }
-        transform.Translate(direction * Time.deltaTime);
+        timeProgression += Time.deltaTime/30;
+        transform.Translate(direction * Time.deltaTime * (1+timeProgression) );
         
      } 
 }

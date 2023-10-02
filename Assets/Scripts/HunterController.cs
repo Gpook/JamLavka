@@ -5,44 +5,70 @@ using UnityEngine;
 public class HunterController : MonoBehaviour
 {
     public Transform target;
-    public float movementSpeed = 3f;
-    public float height = 5f;
-    public float catchingSpeed = 5f;
-    public float catchingDistance = 1f;
+    public float moveSpeed = 5.0f;
+    public float smoothRotation = 5.0f;
+    public float catchRadius = 1.0f;
+    public float catchSpeed = 2.0f;
+    public float returnSpeed = 2.0f;
+    public float delayBeforeStartFollowing = 2.0f;
+
+    private bool isFollowing = false;
     private bool isCatching = false;
     private Vector3 initialPosition;
+    [SerializeField] float timeProgression;
 
     private void Start()
     {
         initialPosition = transform.position;
+        Invoke("StartFollowing", delayBeforeStartFollowing);
     }
 
     private void Update()
     {
+        timeProgression += Time.deltaTime / 30;
+      
+        if (target == null || !isFollowing) return;
+
+        Vector3 targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
+        float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
+
         if (!isCatching)
         {
-            // Плавно двигаемся к цели по осям Z и X
-            Vector3 newPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
-            transform.position = Vector3.Lerp(transform.position, newPosition, movementSpeed * Time.deltaTime);
-        }
+            // Smoothly rotate towards the target
+            Quaternion targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, smoothRotation * Time.deltaTime);
 
-        // Если цель на достаточном расстоянии для словления, начинаем попытку словить цель
-        if (Vector3.Distance(transform.position, target.position) <= catchingDistance)
-        {
-            isCatching = true;
-        }
+            // Move towards the target in X and Z axes
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * (1 + timeProgression) * Time.deltaTime);
 
-        if (isCatching)
-        {
-            // Попытка словить цель, двигаясь вниз по оси Y
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, target.position.y, transform.position.z), catchingSpeed * Time.deltaTime);
-
-            // Если цель словлена, останавливаемся
-            if (transform.position.y <= target.position.y)
+            // If the target stops moving, the hunter should keep approaching
+            if (distanceToTarget <= catchRadius)
             {
-                isCatching = false;
-                transform.position = initialPosition;
+                isCatching = true;
             }
         }
+        else
+        {
+            // Move towards the target in Y axis for catching
+            Vector3 catchPosition = new Vector3(target.position.x, target.position.y, target.position.z);
+            transform.position = Vector3.MoveTowards(transform.position, catchPosition, catchSpeed * Time.deltaTime);
+
+            // Check if hunter's collider is in contact with the target's collider
+            if (Physics.CheckSphere(transform.position, catchRadius, LayerMask.GetMask("Target")))
+            {
+                isFollowing = false;
+            }
+        }
+    }
+
+    private void StartFollowing()
+    {
+        isFollowing = true;
+    }
+
+    private void ReturnToRegularPosition()
+    {
+        isCatching = false;
+        transform.position = Vector3.MoveTowards(transform.position, initialPosition, returnSpeed * Time.deltaTime);
     }
 }
