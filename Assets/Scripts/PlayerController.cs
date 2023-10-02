@@ -13,9 +13,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float moveSpeedMouse;
     [SerializeField] private bool isGrounded;
+    [SerializeField] private bool isDead;
     [SerializeField] private bool isCursorVisible;
     [SerializeField] float timeProgression;
 
+    [SerializeField] AudioSource gameOverSound;
+    [SerializeField] AudioSource backMusic;
+    [SerializeField] AudioSource hitSound;
+    [SerializeField] AudioSource jumpSound;
 
     public void Start()
     {
@@ -42,8 +47,13 @@ public class PlayerController : MonoBehaviour
          UnlockCursor();
          direction.z = 0;
          playerAnimController.AnimDie();
-         sceneController.StartSceneTime();
-     }
+       //  sceneController.StartSceneTime();
+        isDead = true;
+        gameOverSound.Play();
+        hitSound.Play();
+        backMusic.Stop();
+        
+    }
      public void OnCollisionEnter(Collision collision)
      {
          if (collision.gameObject.CompareTag("Ground"))
@@ -52,6 +62,7 @@ public class PlayerController : MonoBehaviour
          }
          if (collision.gameObject.CompareTag("Obstacle"))
          {
+
              GameOver();
          }
      }
@@ -87,10 +98,11 @@ public class PlayerController : MonoBehaviour
             moveDirection.Normalize();
             transform.Translate(moveDirection * (moveSpeedMouse * Time.deltaTime));
         }
-        if (isGrounded && Input.GetMouseButtonDown(0))
+        if (isGrounded && Input.GetMouseButtonDown(0) && !isDead)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
             playerAnimController.AnimJump();
+            jumpSound.Play();
         }
         timeProgression += Time.deltaTime/30;
         transform.Translate(direction * Time.deltaTime * (1+timeProgression) );

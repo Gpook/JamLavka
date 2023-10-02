@@ -24,14 +24,22 @@ public class HunterController : MonoBehaviour
         initialPosition = transform.position;
         Invoke("StartFollowing", delayBeforeStartFollowing);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerController.GameOver();
+        }
+    }
 
-    private void Update()
+    private void FixedUpdate()
     {
         timeProgression += Time.deltaTime / 30;
       
         if (target == null || !isFollowing) return;
 
         Vector3 targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
+       
         float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
 
         if (!isCatching)
@@ -54,6 +62,7 @@ public class HunterController : MonoBehaviour
         {
             // Move towards the target in Y axis for catching
             Vector3 catchPosition = new Vector3(target.position.x, target.position.y, target.position.z);
+            
             transform.position = Vector3.MoveTowards(transform.position, catchPosition, catchSpeed * Time.deltaTime);
 
             // Check if hunter's collider is in contact with the target's collider
