@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
          Cursor.visible = true;
          isCursorVisible = true;
      }
-     private void GameOver()
+     public void GameOver()
      {
          obstacleController.StopSpawnObstacle();
          losePanel.SetActive(true);

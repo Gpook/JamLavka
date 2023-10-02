@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HunterController : MonoBehaviour
 {
+    [SerializeField] private PlayerController playerController;
     public Transform target;
     public float moveSpeed = 5.0f;
     public float smoothRotation = 5.0f;
@@ -46,6 +47,7 @@ public class HunterController : MonoBehaviour
             if (distanceToTarget <= catchRadius)
             {
                 isCatching = true;
+               
             }
         }
         else
@@ -58,6 +60,7 @@ public class HunterController : MonoBehaviour
             if (Physics.CheckSphere(transform.position, catchRadius, LayerMask.GetMask("Target")))
             {
                 isFollowing = false;
+                playerController.GameOver();
             }
         }
     }
