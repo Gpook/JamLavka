@@ -9,16 +9,15 @@ public class HunterController : MonoBehaviour
     public float height = 5f;
     public float catchingSpeed = 5f;
     public float catchingDistance = 1f;
-
     private bool isCatching = false;
     private Vector3 initialPosition;
 
-    void Start()
+    private void Start()
     {
         initialPosition = transform.position;
     }
 
-    void Update()
+    private void Update()
     {
         if (!isCatching)
         {
