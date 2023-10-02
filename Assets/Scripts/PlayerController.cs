@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private PlayerAnimController playerAnimController;
     [SerializeField] private SceneController sceneController;
+    [SerializeField] private GameObject losePanel;
     
     [SerializeField] private Vector3 direction;
     [SerializeField] private Rigidbody rb;
@@ -12,8 +15,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isCursorVisible;
 
 
-     public void Start()
+    public void Start()
     {
+        playerAnimController.AnimRun();
         rb = GetComponent<Rigidbody>();
         LockCursor();
     }
@@ -29,14 +33,19 @@ public class PlayerController : MonoBehaviour
          Cursor.visible = true;
          isCursorVisible = true;
      }
-     public void OnCollisionStay(Collision collision)
+     public void OnCollisionEnter(Collision collision)
      {
          if (collision.gameObject.CompareTag("Ground"))
          {
-             isGrounded = true;
+             playerAnimController.AnimRun();
          }
          if (collision.gameObject.CompareTag("Obstacle"))
          {
+             
+             losePanel.SetActive(true);
+             UnlockCursor();
+             direction.z = 0;
+             playerAnimController.AnimDie();
              sceneController.StartSceneTime();
          }
      }
@@ -47,10 +56,16 @@ public class PlayerController : MonoBehaviour
              isGrounded = false;
          }
      }
-    
-    public void Update()
-    {
-        
+     public void OnCollisionStay(Collision collision)
+     {
+         if (collision.gameObject.CompareTag("Ground"))
+         {
+             isGrounded = true;
+         }
+     }
+     
+     public void Update()
+     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             UnlockCursor();
@@ -69,10 +84,9 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && Input.GetMouseButtonDown(0))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            playerAnimController.AnimJump();
         }
+        transform.Translate(direction * Time.deltaTime);
         
-        transform.Translate(direction);
-    }
-
-    
+     } 
 }
