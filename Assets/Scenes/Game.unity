@@ -371,7 +371,7 @@ PrefabInstance:
     - target: {fileID: 570694447618710306, guid: c53627175a0589e44ad16a53a3d79ff5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.5
+      value: -10.52
       objectReference: {fileID: 0}
     - target: {fileID: 570694447618710306, guid: c53627175a0589e44ad16a53a3d79ff5,
         type: 3}
@@ -762,6 +762,7 @@ MonoBehaviour:
   returnSpeed: 20
   delayBeforeStartFollowing: 0
   timeProgression: 0
+  speedOffset: 0.01
 --- !u!1 &518938157
 GameObject:
   m_ObjectHideFlags: 0

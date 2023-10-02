@@ -63,6 +63,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushie
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 29b195b2aa7c905459da7b84c196658c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -71,6 +76,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8751966660178629633}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 29b195b2aa7c905459da7b84c196658c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8420514561438029193}
   m_SourcePrefab: {fileID: 100100000, guid: 29b195b2aa7c905459da7b84c196658c, type: 3}
 --- !u!1 &7910912235868070898 stripped
 GameObject:
@@ -100,3 +109,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8604715351953907021, guid: 29b195b2aa7c905459da7b84c196658c, type: 3}
+--- !u!65 &8420514561438029193
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7910912235868070898}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.0747356, y: 4.396973, z: 2.7592704}
+  m_Center: {x: -0.040083885, y: 1.698487, z: 0.16779292}

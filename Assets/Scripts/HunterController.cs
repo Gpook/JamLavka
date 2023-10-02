@@ -16,6 +16,7 @@ public class HunterController : MonoBehaviour
     private bool isCatching = false;
     private Vector3 initialPosition;
     [SerializeField] float timeProgression;
+    [SerializeField] float speedOffset;
 
     private void Start()
     {
@@ -39,7 +40,7 @@ public class HunterController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, smoothRotation * Time.deltaTime);
 
             // Move towards the target in X and Z axes
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * (1 + timeProgression) * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * (1 + timeProgression) * Time.deltaTime + speedOffset);
 
             // If the target stops moving, the hunter should keep approaching
             if (distanceToTarget <= catchRadius)

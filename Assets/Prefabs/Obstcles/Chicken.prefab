@@ -63,10 +63,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chicken
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 38e9cfebf76af954cb3e2f117adfc411,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5844622625683270731, guid: 38e9cfebf76af954cb3e2f117adfc411,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 38e9cfebf76af954cb3e2f117adfc411,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6753286740015855076}
     - targetCorrespondingSourceObject: {fileID: 227264865518667226, guid: 38e9cfebf76af954cb3e2f117adfc411,
         type: 3}
       insertIndex: -1
@@ -99,3 +113,30 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.018, y: 0.02, z: 0.023618832}
   m_Center: {x: 0.000000014901161, y: -0.0024934046, z: 0.01175127}
+--- !u!1 &6533703866892619159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 38e9cfebf76af954cb3e2f117adfc411,
+    type: 3}
+  m_PrefabInstance: {fileID: 6227643605569646790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6753286740015855076
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6533703866892619159}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.0747356, y: 4.396973, z: 2.7592704}
+  m_Center: {x: -0.040083885, y: 1.698487, z: 0.16779292}
