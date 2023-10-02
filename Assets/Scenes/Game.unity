@@ -1780,7 +1780,7 @@ PrefabInstance:
         type: 3}
       propertyPath: obstacleController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2049192808}
     - target: {fileID: 6236682930788871216, guid: ecc3c8b9694f6e84c9bccd744892b5cb,
         type: 3}
       propertyPath: m_Layer
@@ -3001,9 +3001,9 @@ MonoBehaviour:
   tileLength: 51.44653
   startTiles: 10
   roadPrefabs:
-  - {fileID: 8569472976770722788, guid: fbd6cefe9d8655f438e3ec9210f4f326, type: 3}
-  - {fileID: 8569472976770722788, guid: beaca9462bd78c548902699dd8addeb7, type: 3}
-  - {fileID: 8569472976770722788, guid: fd992783e84812640b808bbb160f2f0e, type: 3}
+  - {fileID: 8569472976770722788, guid: 27b7ac42e536be74cab0aee2c1d09c71, type: 3}
+  - {fileID: 8569472976770722788, guid: 27b7ac42e536be74cab0aee2c1d09c71, type: 3}
+  - {fileID: 8569472976770722788, guid: 27b7ac42e536be74cab0aee2c1d09c71, type: 3}
   - {fileID: 8569472976770722788, guid: 27b7ac42e536be74cab0aee2c1d09c71, type: 3}
   activeTiles: []
 --- !u!4 &1862877371
