@@ -1,10 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    private void Awake()
+    {
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
     public void StartSceneTime()
     {
         Invoke(nameof(StartScene), 2f);
@@ -14,13 +22,14 @@ public class SceneController : MonoBehaviour
         Invoke(nameof(GameScene), 2f);
     }
     
-    private void StartScene()
+    public void StartScene()
     {
         SceneManager.LoadScene("Menu");
     }
     
-    private void GameScene()
+    public void GameScene()
     {
         SceneManager.LoadScene("Game");
     }
+    
 }
