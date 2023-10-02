@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1347383356}
-  distanceToPlayer: 50
-  spawnInterval: 1
+  distanceToPlayer: 80
+  spawnInterval: 0.6
   spawnPos:
   - {fileID: 264247180}
   - {fileID: 2005716981}
@@ -159,12 +159,13 @@ MonoBehaviour:
   - {fileID: 145852713}
   - {fileID: 1093083770}
   spawnObj:
-  - {fileID: 7025853750986090056, guid: 1d8a1fd1eb0e83642bb76fce8e5f063b, type: 3}
-  - {fileID: 6533703866892619159, guid: 4c8e533f795b8ae4c8d07fc075f4ae8a, type: 3}
-  - {fileID: 7910912235868070898, guid: 435680911c9e4e44f86c1d4070ae9ad5, type: 3}
-  - {fileID: 6945980266638634741, guid: 0413913d6504c9a4fb35aa3dbe5814f9, type: 3}
-  - {fileID: 758503615571040586, guid: cbcc02a5013f78444b49c45a9bfaef82, type: 3}
-  - {fileID: 5769048731520079257, guid: 05b73f96633b5d249b69c3b5d3a22e45, type: 3}
+  - {fileID: 784797904531644982, guid: ddfb7aa985ea07746971295bc89dfa46, type: 3}
+  - {fileID: 4419204665035682063, guid: fefb05b8a18282649bcba803cdcf21b7, type: 3}
+  - {fileID: 7025853750986090056, guid: ec373a9ef94786748af3df1df655798a, type: 3}
+  - {fileID: 2104845306949461178, guid: 7d672272102a4eb4d9b8a5227a63bd03, type: 3}
+  - {fileID: 6945980266638634741, guid: df8cf739054466143acde0d7e5fe65ab, type: 3}
+  - {fileID: 3917064075216726338, guid: 430e7ff3c4358574b868d37fcae90d30, type: 3}
+  - {fileID: 5769048731520079257, guid: 9974620973f72a14eb4893cac7f5b3da, type: 3}
 --- !u!4 &95075823
 Transform:
   m_ObjectHideFlags: 0

@@ -21,7 +21,14 @@ public class ObstacleController : MonoBehaviour
         {
             var positionToSpawn = spawnPos[Random.Range(0, spawnPos.Length)];
             var objectToSpawn = spawnObj[Random.Range(0, spawnObj.Length)];
-            Instantiate(objectToSpawn, positionToSpawn.transform.position, Quaternion.identity);
+            
+            var randomRotationX = Random.Range(0f, 360f);
+            var randomRotationY = Random.Range(0f, 360f);
+            var randomRotationZ = Random.Range(0f, 360f);
+            
+            var randomRotation = Quaternion.Euler(randomRotationX, randomRotationY, randomRotationZ);
+            
+            Instantiate(objectToSpawn, positionToSpawn.transform.position, randomRotation);
             yield return new WaitForSeconds(spawnInterval);
         }
     }
